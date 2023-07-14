@@ -8,7 +8,7 @@ class Pagy
       pagy = Pagy::Cursor.new(pagy_cursor_get_vars(collection, vars))
 
       items =  pagy_cursor_get_items(collection, pagy, pagy.position)
-      pagy.has_more =  pagy_cursor_has_more?(items, pagy)
+      pagy.has_more = pagy_cursor_has_more?(items, pagy)
 
       return pagy, items[0..pagy.items-1]
     end
@@ -29,9 +29,9 @@ class Pagy
     end
 
     def pagy_cursor_has_more?(collection, pagy)
-      return false if collection.empty?
+      return false if collection.blank?
 
-      collection.size > pagy.items
+      collection.length > pagy.items
     end
   end
 end
