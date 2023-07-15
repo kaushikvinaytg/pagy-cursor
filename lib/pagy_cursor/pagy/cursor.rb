@@ -1,8 +1,8 @@
 class Pagy
 
   class Cursor < Pagy
-    attr_reader :before, :after, :arel_table, :primary_key, :order, :comparation, :position, :prev, :next
-    attr_accessor :has_more
+    attr_reader :before, :after, :arel_table, :primary_key, :order, :comparation, :position
+    attr_accessor :has_more, :prev, :next
     alias_method :has_more?, :has_more
 
     def initialize(vars)
