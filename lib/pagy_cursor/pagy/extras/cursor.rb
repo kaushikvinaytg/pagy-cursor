@@ -6,10 +6,8 @@ class Pagy
     # Return Pagy object and items
     def pagy_cursor(collection, vars={}, options={})
       pagy = Pagy::Cursor.new(pagy_cursor_get_vars(collection, vars))
-
       items =  pagy_cursor_get_items(collection, pagy, pagy.position)
       items = items[0..pagy.items-1] if (pagy.has_more = pagy_cursor_has_more?(items, pagy))
-
       if items.present?
         pagy.prev = items[0].send(pagy.primary_key)
         pagy.next = items[-1].send(pagy.primary_key)
